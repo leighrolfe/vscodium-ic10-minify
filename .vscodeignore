@@ -4,3 +4,4 @@ out/**/*.map
 out/**/*.test.js
 tsconfig.json
 node_modules/**
+scripts/**

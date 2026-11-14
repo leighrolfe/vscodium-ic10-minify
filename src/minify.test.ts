@@ -1,27 +1,31 @@
 import { strict as assert } from "assert";
 import { minify } from "./minify";
 
-const input = [
-  "# Header comment",
-  "",
-  "alias   Pump \t d0   # inline comment",
-  "define Hash HASH(\"Tank # 1\")",
-  "main:",
-  "    yield",
-  "    s Pump On 1   ",
-  "    j main",
-  "",
-].join("\r\n");
-
-const expected = [
-  "alias Pump d0",
-  "define Hash HASH(\"Tank # 1\")",
-  "main:",
-  "yield",
-  "s Pump On 1",
-  "j main",
-].join("\n");
-
-assert.equal(minify(input), expected);
+assert.equal(
+  minify(
+    [
+      "# Pump control",
+      "",
+      "alias Pump d0",
+      "alias Temp r0",
+      'alias Tank HASH("Tank # 1")',
+      "define   Target 300   # kelvin",
+      "main:",
+      "    yield",
+      "    sub Temp Temp Target",
+      "    s Pump On Temp",
+      "    j main",
+      "",
+    ].join("\r\n")
+  ),
+  [
+    'alias Tank HASH("Tank # 1")',
+    "define daa 300",
+    "main:",
+    "yield",
+    "sub r0 r0 daa",
+    "s d0 On r0",
+    "j main",
+  ].join("\n")
+);
 assert.equal(minify("# only a comment\n\n   \n"), "");
-console.log("minify tests passed");

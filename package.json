@@ -2,28 +2,38 @@
   "name": "ic10-minify",
   "displayName": "IC10 Minify",
   "description": "Minify Stationeers IC10 code by stripping comments and whitespace.",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "publisher": "local",
   "license": "MIT",
-  "engines": { "vscode": "^1.85.0" },
-  "categories": ["Other"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      { "command": "ic10Minify.openMinified", "title": "IC10: Minify (Open in New Editor)" },
-      { "command": "ic10Minify.copyMinified", "title": "IC10: Minify (Copy to Clipboard)" }
+      {
+        "command": "ic10Minify.openMinified",
+        "title": "IC10: Minify (Open in New Editor)"
+      },
+      {
+        "command": "ic10Minify.copyMinified",
+        "title": "IC10: Minify (Copy to Clipboard)"
+      }
     ]
   },
   "scripts": {
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "test": "npm run compile && node out/minify.test.js",
+    "test": "npm run compile && node scripts/run-tests.js",
     "package": "npm run compile && vsce package --allow-missing-repository --skip-license"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@types/vscode": "^1.85.0",
     "@vscode/vsce": "^3.0.0",
-    "typescript": "^5.4.0"
+    "typescript": "^5.9.3"
   }
 }
