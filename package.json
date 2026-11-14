@@ -2,7 +2,7 @@
   "name": "ic10-minify",
   "displayName": "IC10 Minify",
   "description": "Minify Stationeers IC10 code by stripping comments and whitespace.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "local",
   "license": "MIT",
   "engines": {
@@ -28,7 +28,7 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "test": "npm run compile && node scripts/run-tests.js",
-    "package": "npm run compile && vsce package --allow-missing-repository --skip-license"
+    "package": "npm run compile && vsce package --allow-missing-repository"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
