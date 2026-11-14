@@ -65,10 +65,12 @@ Details:
 
 Open an IC10 script and run one of these from the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`):
 
-- **IC10: Minify (Open in New Editor)**
-- **IC10: Minify (Copy to Clipboard)**
+- **IC10: Minify to File**
+- **IC10: Minify to Clipboard**
 
 Both work on the current selection if there is one, otherwise on the whole file. Your original file is never modified.
+
+**Minify to File** saves the result next to the original as `<name>.min.<ext>` (for example `pump.ic10` becomes `pump.min.ic10`) and opens it beside the original. If that file already exists you are asked whether to overwrite it. If you decline, or the document hasn't been saved yet, the result opens in an untitled editor instead.
 
 ## Install
 
@@ -102,11 +104,16 @@ To debug, open the folder in VS Code / VSCodium and press `F5` to launch an Exte
 
 ```
 src/
-  extension.ts      commands and editor integration
-  minify.ts         the ordered list of steps
-  steps/            one module (and test) per step
-  names.ts          short-name generator shared by the define and label steps
-  tokenize.ts       quote-aware tokenizer
+  extension.ts         registers the commands
+  commands/            one module per command (openMinified, copyMinified)
+  editor.ts            getEditor, registerEditorCommand, minifyEditor
+  minifiedFile.ts      saved-file handling: target path, overwrite prompt, write
+  minPath.ts           name.ext -> name.min.ext
+  openDocument.ts      open a file or an untitled editor beside the current one
+  minify.ts            the ordered list of steps
+  steps/               one module (and test) per step
+  names.ts             short-name generator shared by the define and label steps
+  tokenize.ts          quote-aware tokenizer
 ```
 
 To add a step, create a module in `src/steps/` that exports a `Step` (`(lines: string[]) => string[]`) and add it to the list in `src/minify.ts`.

@@ -1,12 +1,12 @@
 {
   "name": "ic10-minify",
   "displayName": "IC10 Minify",
-  "description": "Minify Stationeers IC10 code by stripping comments and whitespace.",
-  "version": "0.0.4",
+  "description": "Minify Stationeers IC10 code by stripping comments and whitespace, then compressing aliases.",
+  "version": "0.1.0",
   "publisher": "local",
   "license": "MIT",
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.143.0"
   },
   "categories": [
     "Other"
@@ -16,11 +16,11 @@
     "commands": [
       {
         "command": "ic10Minify.openMinified",
-        "title": "IC10: Minify (Open in New Editor)"
+        "title": "IC10: Minify to File"
       },
       {
         "command": "ic10Minify.copyMinified",
-        "title": "IC10: Minify (Copy to Clipboard)"
+        "title": "IC10: Minify to Clipboard"
       }
     ]
   },
@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
-    "@types/vscode": "^1.146.0",
+    "@types/vscode": "^1.143.0",
     "@vscode/vsce": "^4.1.1",
     "typescript": "^7.0.2"
   },
