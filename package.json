@@ -24,9 +24,6 @@
       }
     ]
   },
-  "overrides": {
-    "vulnerable-package-name": "latest-safe-version"
-  },
   "scripts": {
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
@@ -38,6 +35,11 @@
     "@types/vscode": "^1.146.0",
     "@vscode/vsce": "^4.1.1",
     "typescript": "^7.0.2"
+  },
+  "overrides": {
+    "@vscode/vsce": {
+      "minimatch": "^11.0.1"
+    }
   },
   "allowScripts": {
     "@vscode/vsce-sign@2.1.1": true,
