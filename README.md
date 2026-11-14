@@ -7,6 +7,7 @@ Minifies Stationeers IC10 code. Steps, in order:
 3. Replace register aliases (`r0`–`r15`, `ra`, `sp`) with the register; drop the alias line
 4. Replace device aliases (`d0`–`d5`, `db`) with the device; drop the alias line
 5. Rename `define` names to `daa`, `dab`, … `dzz` in order of definition
+6. Rename labels to `dlaa`, `dlab`, … `dlzz` in order of definition, updating all references
 
 Aliases to anything else (e.g. `HASH("...")`) are left as is. Alias redefinitions and alias chains are handled top to bottom.
 

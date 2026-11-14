@@ -21,11 +21,11 @@ assert.equal(
   [
     'alias Tank HASH("Tank # 1")',
     "define daa 300",
-    "main:",
+    "dlaa:",
     "yield",
     "sub r0 r0 daa",
     "s d0 On r0",
-    "j main",
+    "j dlaa",
   ].join("\n")
 );
 assert.equal(minify("# only a comment\n\n   \n"), "");

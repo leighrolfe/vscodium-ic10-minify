@@ -4,6 +4,7 @@ import { stripWhitespace } from "./steps/stripWhitespace";
 import { inlineRegisterAliases } from "./steps/inlineRegisterAliases";
 import { inlineDeviceAliases } from "./steps/inlineDeviceAliases";
 import { compressDefines } from "./steps/compressDefines";
+import { compressLabels } from "./steps/compressLabels";
 
 /** Steps run in this order. */
 const STEPS: Step[] = [
@@ -12,6 +13,7 @@ const STEPS: Step[] = [
   inlineRegisterAliases,
   inlineDeviceAliases,
   compressDefines,
+  compressLabels,
 ];
 
 export function minify(source: string): string {
