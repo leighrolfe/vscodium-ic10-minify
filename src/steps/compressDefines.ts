@@ -7,7 +7,7 @@ const RESERVED = new Set(["div"]);
 /**
  * Rename define names to daa, dab, ... dzz in order of definition.
  * Names already used in the program (including labels) are skipped.
- * If names run out, the remaining defines keep their original name.
+ * If names run out (highly unlikely), the remaining defines keep their original name.
  */
 export const compressDefines: Step = (lines) => {
   const tokenLines = lines.map(tokenize);
